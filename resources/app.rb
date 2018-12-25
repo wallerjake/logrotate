@@ -62,6 +62,10 @@ action :enable do
     action :create
   end
 
+log 'config value' do
+  message logrotate_config.inspect
+  level :warn
+end
   template "#{new_resource.base_dir}/#{new_resource.name}" do
     source   new_resource.template_name
     cookbook new_resource.cookbook
